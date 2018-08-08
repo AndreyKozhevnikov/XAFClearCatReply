@@ -1,0 +1,25 @@
+{
+  "name": "XAFClearCatReply",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyKozhevnikov/XAFClearCatReply.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyKozhevnikov/XAFClearCatReply/issues"
+  },
+  "homepage": "https://github.com/AndreyKozhevnikov/XAFClearCatReply#readme",
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-strongloop": "^2.1.0"
+  }
+}
