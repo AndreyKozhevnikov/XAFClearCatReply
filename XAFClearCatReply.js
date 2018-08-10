@@ -13,10 +13,14 @@
 
 function subscribeToButtons() {
   let _originalMarkAsReviewed = window.fullViewModel.bottomPanelItems.markAsReviewed;
-  window.fullViewModel.bottomPanelItems.markAsReviewed = customMarkAsRevied(_originalMarkAsReviewed);
+  window.fullViewModel.bottomPanelItems.markAsReviewed = performCustomOperationBefore(_originalMarkAsReviewed);
   ko.applyBindings(window.fullViewModel, document.getElementById('mark-as-reviewed')); // wihtout this code the 'mark-as-reviewed' button stil call the original markAsReviewed method. some kind of magic I suppose (don't want to research)
+
+  let _submitButtonClick = window.fullViewModel.bottomPanelItems.submitButtonClick;
+  window.fullViewModel.bottomPanelItems.markAsReviewed = performCustomOperationBefore(_submitButtonClick);
+
 }
-function customMarkAsRevied(originalFunction) {
+function performCustomOperationBefore(originalFunction) {
   return function() {
     clearCatReply();
     console.log('original');
