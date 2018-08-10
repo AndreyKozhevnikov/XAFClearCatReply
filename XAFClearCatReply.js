@@ -17,16 +17,23 @@ function subscribeToButtons() {
   ko.applyBindings(window.fullViewModel, document.getElementById('mark-as-reviewed')); // wihtout this code the 'mark-as-reviewed' button stil call the original markAsReviewed method. some kind of magic I suppose (don't want to research)
 
   let _submitButtonClick = window.fullViewModel.bottomPanelItems.submitButtonClick;
-  window.fullViewModel.bottomPanelItems.markAsReviewed = performCustomOperationBefore(_submitButtonClick);
+  window.fullViewModel.bottomPanelItems.submitButtonClick = performCustomOperationBefore(_submitButtonClick, isSecondLineAssigned);
 
 }
-function performCustomOperationBefore(originalFunction) {
+function performCustomOperationBefore(originalFunction, conditionFunction) {
   return function() {
-    clearCatReply();
+    console.log(conditionFunction);
+    if (conditionFunction == undefined || conditionFunction())
+      clearCatReply();
     console.log('original');
     originalFunction();
   };
 }
+
+function isSecondLineAssigned() {
+  return window.supportCenter.viewModel.issueDetails.selectedAssignTo.value.currentValue() == '2f795f88-e3ef-4913-9fdb-66c1e7525766'; // .!Support Reviewed Queue 2f795f88-e3ef-4913-9fdb-66c1e7525766
+}
+
 
 function clearCatReply() {
   console.log('clear cat');
