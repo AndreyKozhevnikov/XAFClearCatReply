@@ -1,3 +1,6 @@
+/*eslint strict: ["error", "global"]*/
+/* global ko*/
+'use strict';
 // ==UserScript==
 // @name         XAF Clear Cat Reply
 // @namespace    http://tampermonkey.net/
@@ -7,9 +10,6 @@
 // @match        https://isc.devexpress.com/Thread/WorkplaceDetails*
 // @grant        none
 // ==/UserScript==
-/*eslint strict: ["error", "global"]*/
-/* global ko*/
-'use strict';
 
 function subscribeToButtons() {
   window.fullViewModel.bottomPanelItems_submitButtonClick = window.fullViewModel.bottomPanelItems.submitButtonClick;
