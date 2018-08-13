@@ -4,7 +4,7 @@
 // ==UserScript==
 // @name         XAF Clear Cat Reply
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  clear CAT reply when a ticked is assigned to 2nd line
 // @author       AndreyK
 // @match        https://isc.devexpress.com/Thread/WorkplaceDetails*
@@ -50,3 +50,4 @@ function clearCatReply() {
 window.onload = function() {
   subscribeToButtons();
 };
+subscribeToButtons();
