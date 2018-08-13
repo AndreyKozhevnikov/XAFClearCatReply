@@ -27,7 +27,7 @@ function customMarkAsReviewed(originalMarkAsReviewed) {
   return function() {
     originalMarkAsReviewed();
     clearCatReply();
-    setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 0);
+    setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 200);
   };
 }
 
