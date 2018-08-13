@@ -13,7 +13,6 @@
 
 function subscribeToButtons() {
   window.fullViewModel.bottomPanelItems_submitButtonClick = window.fullViewModel.bottomPanelItems.submitButtonClick;
-   // debugger;
   window.fullViewModel.bottomPanelItems.submitButtonClick = customSubmitButtonClick();
 
   let _originalMarkAsReviewed = window.fullViewModel.bottomPanelItems.markAsReviewed;
@@ -26,24 +25,18 @@ function subscribeToButtons() {
 
 function customMarkAsReviewed(originalMarkAsReviewed) {
   return function() {
-      console.log('0');
     originalMarkAsReviewed();
-     // clearCatReply();
-    // window.fullViewModel.bottomPanelItems.submitButtonClick();
-      window.fullViewModel.bottomPanelItems.submitButtonClick();
-    //setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 500);
+    clearCatReply();
+    setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 0);
   };
 }
 
 function customSubmitButtonClick() {
   return function() {
-      console.log('1');
     if (isSecondLineAssigned()) {
       clearCatReply();
     }
-      console.log('2');
-      window.fullViewModel.bottomPanelItems_submitButtonClick();
-    //setTimeout(window.fullViewModel.bottomPanelItems_submitButtonClick,5000);
+    window.fullViewModel.bottomPanelItems_submitButtonClick();
   };
 }
 
@@ -52,10 +45,8 @@ function isSecondLineAssigned() {
 }
 
 function clearCatReply() {
-  console.log('clear cat');
   window.fullViewModel.CatViewModel.selectedReply().value.currentValue('');
 }
-window.onload=function(){
-    console.log('-1');
-subscribeToButtons();
-}
+window.onload = function() {
+  subscribeToButtons();
+};
