@@ -4,7 +4,7 @@
 // ==UserScript==
 // @name         XAF Clear Cat Reply
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.1.4
 // @description  clear CAT reply when a ticked is assigned to 2nd line
 // @author       AndreyK
 // @match        https://isc.devexpress.com/Thread/WorkplaceDetails*
