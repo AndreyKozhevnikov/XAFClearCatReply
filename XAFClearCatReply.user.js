@@ -26,8 +26,9 @@ function subscribeToButtons() {
 function customMarkAsReviewed(originalMarkAsReviewed) {
   return function() {
     originalMarkAsReviewed();
-    clearCatReply();
-    setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 200);
+    if (clearCatReply()) {
+      setTimeout(window.fullViewModel.bottomPanelItems.submitButtonClick, 200);
+    }
   };
 }
 
@@ -45,7 +46,12 @@ function isSecondLineAssigned() {
 }
 
 function clearCatReply() {
-  window.fullViewModel.CatViewModel.selectedReply().value.currentValue('');
+  if (window.fullViewModel.CatViewModel.selectedReply().value.currentValue() != '') {
+    window.fullViewModel.CatViewModel.selectedReply().value.currentValue('');
+    return true;
+  } else {
+    return false;
+  }
 }
 window.onload = function() {
   subscribeToButtons();
