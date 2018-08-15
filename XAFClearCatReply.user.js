@@ -4,7 +4,7 @@
 // ==UserScript==
 // @name         XAF Clear Cat Reply
 // @namespace    http://tampermonkey.net/
-// @version      0.1.4
+// @version      0.1.5
 // @description  clear CAT reply when a ticked is assigned to 2nd line
 // @author       AndreyK
 // @match        https://isc.devexpress.com/Thread/WorkplaceDetails*
@@ -46,7 +46,7 @@ function isSecondLineAssigned() {
 }
 
 function clearCatReply() {
-  if (window.fullViewModel.CatViewModel.selectedReply().value.currentValue() != '') {
+  if (window.fullViewModel.CatViewModel.selectedReply().value.currentValue() == 'd1dd8574-ce24-4204-b654-928b0044318a') { // need clarification
     window.fullViewModel.CatViewModel.selectedReply().value.currentValue('');
     return true;
   } else {
